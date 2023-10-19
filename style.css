@@ -103,7 +103,7 @@ footer{
     height: 100%;
     background-color: var(--VeryDarkGrayishBlue);
     position: relative;
-    top: -50;
+    /* top: -50px; */
 }
 .share span{
     width: 60%;
@@ -118,25 +118,93 @@ footer{
 .share span > img{
     margin-left: 10px;
 }
+.bi{
+    display:none;
+}
 @media (width > 425px) {
     main{
-        width: 50vw;
-        height: 50vh;
+        max-width: 60vw;
+        height: 35vh; 
         display: grid;
-        grid-template-areas: 
+        overflow: visible;
+        grid-template-columns: 300px 500px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
         'front description'
-        ' front  .';
-        grid-template-rows: 200px 100px;
-        grid-template-columns: 500px 1fr;
+        'front autor';
     }
     .img_front{
-        grid-area: 'front';
+        height: 100%;
+        grid-area: front;
+    }
+    #front{
+        width: auto;
+        height: 100%;
+        aspect-ratio: 5/4;
     }
     .description{
-        grid-area: 'description';
+        width: 100%;
+        grid-area: description;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0px;
+        text-wrap: balance;
+        letter-spacing: 1px;    
+        padding-right: 60px;
+    }
+    .description h1{
+        width: 100%;
+        font-size: 1.7em;
+        color: var(--VeryDarkGrayishBlue);
+        font-weight: 700;
+    }
+    .description p{
+        margin: 10px 0px;
+        color: var(--VeryDarkGrayishBlue);
+        /* text-wrap: balance;     */
+        font-weight: 500;
     }
     .author{
+        grid-area: autor;
+        width: 100%;
         position: relative;
-        grid-area: 'autor';
+        display: flex;
+        justify-content: space-between;
+        padding-left: 40px;
+    }
+    .author > .ds{
+        padding-right: 150px;
+    }
+    .author__share{
+        margin-right: 50px;
+        bottom: 0;
+        right: 0;
+    }
+    .share{
+        width: 250px;
+        position: absolute;
+        height: 50px;
+        top: -70px;
+        right: -50px;
+        margin-right: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .share span{    
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding: 0 40px;
+    }
+    .bi{
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-top: 10px solid var(--VeryDarkGrayishBlue);
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        position: absolute;
+        left: 50%;
     }
 }
